@@ -7,6 +7,21 @@
 <hr />
 <hr />
 
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.display-create').click(function () {
+      $.ajax({
+        type: 'GET',
+        dataType: 'html',
+        url: '@Url.Action("Create", "Comment", new { id = Model.BlogPostId })',
+        success: function (result) {
+          $('#result2').html(result);
+        }
+      });
+    });
+   });
+</script>
+
     <p>@Html.DisplayNameFor(model => model.Title): @Html.DisplayFor(model => model.Title)</p>
 
     <p>@Html.DisplayNameFor(model => model.Body): @Html.DisplayFor(model => model.Body)</p>
@@ -20,6 +35,11 @@
             <p> @Html.ActionLink("Delete Comment", "Delete", "Comment", new { id = comment.CommentId })</p>
             <hr />
         }
+
+<body>
+    <h4 class="display-create">Add A Comment</h4>
+    <div id="result2"></div>
+</body>
          
 <p>@Html.ActionLink("Edit Post", "Edit", new { id = Model.BlogPostId }) | 
    @Html.ActionLink("Delete Post", "Delete", new { id = Model.BlogPostId }) | 

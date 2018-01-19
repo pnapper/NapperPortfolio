@@ -87,10 +87,5 @@ namespace PersonalPortfolio.Controllers
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
-
-        public IActionResult DisplayCreateViewWithAjax()
-        {
-            return View();
-        }
     }
 }

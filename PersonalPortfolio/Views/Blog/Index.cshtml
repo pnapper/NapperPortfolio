@@ -13,7 +13,7 @@
       $.ajax({
         type: 'GET',
         dataType: 'html',
-        url: '@Url.Action("DisplayCreateViewWithAjax")',
+        url: '@Url.Action("Create")',
         success: function (result) {
           $('#result1').html(result);
         }
@@ -50,7 +50,9 @@
     }
 </table>
 
-    <h4 class="display-create">Display Create view</h4>
+<body>
+    <h4 class="display-create">Create New Post</h4>
     <div id="result1"></div>
+</body>
    
     @Html.ActionLink("Add New Post", "Create")
