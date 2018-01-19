@@ -1,0 +1,39 @@
+﻿@model PersonalPortfolio.Models.Comment
+
+@{
+    ViewData["Title"] = "Comment - Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript">
+  $(document).ready(function() {
+            $('.new-comment').submit(function(event) {
+            event.preventDefault();
+                $.ajax({
+                    url: '@Url.Action("NewComment")',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: $(this).serialize(),
+                    success: function (result) {
+                        var resultMessage = 'You\'ve added a new comment!<br>CommentId: ' + result.commentId + '<br>Author: ' + result.author + '<br>Comment: ' + result.body;
+                        $('#result').html(resultMessage);
+                    }
+                })
+            });
+        });
+</script>
+    
+    @using (Html.BeginForm("NewComment", "Comment", FormMethod.Post, new { @class = "new-comment"}))
+    {
+        @Html.LabelFor(model => model.Author)
+        @Html.TextBoxFor(model => model.Author)
+        @Html.LabelFor(model => model.Body)
+        @Html.TextBoxFor(model => model.Body)
+        @Html.DropDownList("BlogPostId")
+        <input type="submit" value="Create" />
+    }
+
+    
+<div id="result"></div>
+
+@Html.ActionLink("Back to Blog Posts", "Index", "Blog")

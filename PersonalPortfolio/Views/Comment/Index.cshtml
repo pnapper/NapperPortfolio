@@ -1,0 +1,50 @@
+﻿@model IEnumerable<PersonalPortfolio.Models.Comment>
+
+@{
+    ViewData["Title"] = "Comment";
+
+}
+
+
+@using System.Security.Claims
+
+<h3>Comments</h3>
+<table>
+    <tr>
+        <th>
+            CommentId
+        </th>
+        <th>
+            BlogPostId
+        </th>
+        <th>
+            Author
+        </th>
+        <th>
+            Body
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var listComment in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelComment => listComment.CommentId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelComment => listComment.BlogPostId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelComment => listComment.Author)
+            </td>
+            <td>
+                @Html.DisplayFor(modelComment => listComment.Body)
+            </td>
+        </tr>
+    }
+    
+</table>
+<p>
+    @Html.ActionLink("Add Comment", "Create")
+</p>

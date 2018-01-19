@@ -1,5 +1,24 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model PersonalPortfolio.Models.BlogPost
+
 @{
+    ViewData["Title"] = "BlogPost - Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+    <p>@Html.DisplayNameFor(model => model.Title): @Html.DisplayFor(model => model.Title)</p>
+
+    <p>@Html.DisplayNameFor(model => model.Body): @Html.DisplayFor(model => model.Body)</p>
+
+    <h4>Comments</h4>
+        @foreach(var comment in @Model.Comments)
+        {
+            <p> Author: @comment.Author </p>
+            <p> Comment: @comment.Body </p>
+                          
+            <p> @Html.ActionLink("Delete", "Delete", "Comment", new { id = comment.CommentId })</p>
+            <hr />
+        }
+         
+<p>@Html.ActionLink("Edit", "Edit", new { id = Model.BlogPostId }) | 
+   @Html.ActionLink("Add Comment", "Create", "Comment", new { id = Model.BlogPostId })
+   @Html.ActionLink("Back to Blog Posts", "Index")</p>
