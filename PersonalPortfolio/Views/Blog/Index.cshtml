@@ -2,7 +2,25 @@
 
 @{
     ViewData["Title"] = "Blog Posts";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<hr />
+<hr />
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.display-create').click(function () {
+      $.ajax({
+        type: 'GET',
+        dataType: 'html',
+        url: '@Url.Action("DisplayCreateViewWithAjax")',
+        success: function (result) {
+          $('#result1').html(result);
+        }
+      });
+    });
+   });
+</script>
 
 @using System.Security.Claims
 
@@ -31,5 +49,8 @@
         </tr>
     }
 </table>
+
+    <h4 class="display-create">Display Create view</h4>
+    <div id="result1"></div>
    
     @Html.ActionLink("Add New Post", "Create")
