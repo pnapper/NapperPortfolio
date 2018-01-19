@@ -9,13 +9,13 @@
 
     <p>@Html.DisplayNameFor(model => model.Body): @Html.DisplayFor(model => model.Body)</p>
 
-    <h4>Comments</h4>
+    <h4>Comments:</h4>
         @foreach(var comment in @Model.Comments)
         {
             <p> Author: @comment.Author </p>
             <p> Comment: @comment.Body </p>
                           
-            <p> @Html.ActionLink("Delete", "Delete", "Comment", new { id = comment.CommentId })</p>
+            <p> @Html.ActionLink("Delete Comment", "Delete", "Comment", new { id = comment.CommentId })</p>
             <hr />
         }
          

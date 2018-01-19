@@ -68,9 +68,24 @@ namespace PersonalPortfolio.Controllers
         public IActionResult Details(int id)
         {
             var thisBlogPost = _db.BlogPosts
-                                 .Include(x => x.BlogPostId)
+                                  .Include(x => x.BlogPostId)
                                   .FirstOrDefault(items => items.BlogPostId == id);
             return View(thisBlogPost);
+        }
+
+        public IActionResult Delete(int id)
+        {
+            var thisComment = _db.Comments.FirstOrDefault(names => names.CommentId == id);
+            return View(thisComment);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            var thisComment = _db.Comments.FirstOrDefault(names => names.CommentId == id);
+            _db.Remove(thisComment);
+            _db.SaveChanges();
+            return RedirectToAction("Details", "Blog", new { id = thisComment.BlogPostId });
         }
 
     }
