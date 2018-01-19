@@ -56,7 +56,7 @@ namespace PersonalPortfolio
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");  // <-There is an edit here
+                    template: "{controller=Account}/{action=Index}/{id?}");  // <-There is an edit here
             });
 
 
