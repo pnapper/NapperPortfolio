@@ -51,10 +51,41 @@ namespace PersonalPortfolio.Controllers
         public IActionResult Details(int id)
         {
             var thisBlogPost = _db.BlogPosts
-                                 .Include(x => x.Comments)
-                                        .FirstOrDefault(items => items.BlogPostId == id);
+                                  .Include(x => x.Comments)
+                                  .FirstOrDefault(items => items.BlogPostId == id);
             return View(thisBlogPost);
         }
 
+        public IActionResult Edit(int id)
+        {
+            var thisBlogPost = _db.BlogPosts.FirstOrDefault(names => names.BlogPostId == id);
+            return View(thisBlogPost);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(BlogPost blogpost)
+        {
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var currentUser = await _userManager.FindByIdAsync(userId);
+            blogpost.User = currentUser;
+            _db.BlogPosts.Update(blogpost);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Delete(int id)
+        {
+            var thisBlogPost = _db.BlogPosts.FirstOrDefault(names => names.BlogPostId == id);
+            return View(thisBlogPost);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            var thisBlogPost = _db.BlogPosts.FirstOrDefault(names => names.BlogPostId == id);
+            _db.Remove(thisBlogPost);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

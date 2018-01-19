@@ -1,0 +1,38 @@
+﻿@model PersonalPortfolio.Models.Comment
+
+@{
+    ViewData["Title"] = "Comment - Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<hr />
+<hr />
+
+
+<html>
+  <head>
+    <title>Comment - Edit</title>
+  </head>
+  <body>
+    <h2>Edit This Comment</h2>
+    <hr />
+       <h4>Author: @Html.DisplayFor(model => model.Author)</h4>
+       <h4>Comment: @Html.DisplayFor(model => model.Body)</h4>
+       <h5>@Html.DisplayFor(model => model.Body)</h5>
+
+    @using (Html.BeginForm())
+    {
+        @Html.HiddenFor(model => model.CommentId)
+
+        @Html.LabelFor(model => model.Author)
+        @Html.EditorFor(model => model.Author)
+        <br>
+        @Html.LabelFor(model => model.Body)
+        @Html.EditorFor(model => model.Body)
+        <br>
+        <input type="submit" value="Save" class="btn btn-success"/>
+    }
+        <br>
+        <a href="@Url.Action("Index", "Blog") "class="btn btn-info"">Back to Blog Posts</a> 
+
+  </body>
+</html>
