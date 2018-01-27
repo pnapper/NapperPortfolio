@@ -1,4 +1,40 @@
 ﻿body {
-    background-image: url("../images/Napper80s.jpg")
+    background-image: url("../images/Napper80s.jpg");
+    background-size: 70%;
+    background-size: cover;
+    position: absolute
+    background-repeat: no-repeat;
+    background-position: right right;
+    margin-bottom: 100px;
+}
+
+footer {
+    position: relative;
+}
+
+h2 {
+    color: aliceblue;
+}
+
+
+h4 {
+    color: aliceblue
+        
+}
+
+p {
+    color: aliceblue;
+}
+
+th {
+    font-size: 30px;
+    font-family: 'Questrial', sans-serif;
+    color: aliceblue;
+}
+
+td {
+    font-size: 20px;
+    font-family: 'Assistant', sans-serif;
+    color: aliceblue;
 
 }

@@ -34,7 +34,7 @@ This is a web app that will serve as my Personal Portfolio. It was created with 
 
  * 4. Portfolio will contain my contact information.
 
- * 5. Portfolio will contain my personal and work projects.
+ * 5. Portfolio will contain my starred GitHub personal and work projects through API call integration.
 
 
 ## Getting Started

@@ -21,17 +21,7 @@ namespace PersonalPortfolio.Controllers
             _signInManager = signInManager;
             _db = db;
         }
-
-        public IActionResult Index()
-        {
-            return View();
-        }
-
-        public IActionResult About()
-        {
-            return View();
-        }
-
+                    
         public IActionResult Register()
         {
             return View();
@@ -64,7 +54,7 @@ namespace PersonalPortfolio.Controllers
                 .PasswordSignInAsync(model.Email, model.Password, isPersistent: true, lockoutOnFailure: false);
             if (result.Succeeded)
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
             }
             else
             {

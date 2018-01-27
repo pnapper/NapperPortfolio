@@ -8,15 +8,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace PersonalPortfolio.Controllers
 {
-    public class HomeController : Controller
+    public class ResumeController : Controller
     {
         // GET: /<controller>/
         public IActionResult Index()
-        {
-            return View();
-        }
-
-        public IActionResult About()
         {
             return View();
         }

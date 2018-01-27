@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using PersonalPortfolio.Models;
 
@@ -51,12 +52,13 @@ namespace PersonalPortfolio
             }
 
             app.UseIdentity();
+            app.UseStaticFiles();
 
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Account}/{action=Index}/{id?}");  // <-There is an edit here
+                    template: "{controller=Home}/{action=Index}/{id?}");  // <-There is an edit here
             });
 
 
