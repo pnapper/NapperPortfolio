@@ -1,0 +1,16 @@
+﻿@model List<PersonalPortfolio.Models.GitHubProject>
+
+@{
+    ViewData["Title"] = "Project";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <h3>Featured Projects</h3>
+        @foreach (var project in Model)
+        {
+            <p>Project: @Html.DisplayFor(modelItem => project.name)</p>
+            <p>Link: <a href="@Html.DisplayFor(modelItem => project.html_url)">@Html.DisplayFor(modelItem => project.html_url)</a></p>
+            <p>Language: @Html.DisplayFor(modelItem => project.language)</p>
+        }
+</div>

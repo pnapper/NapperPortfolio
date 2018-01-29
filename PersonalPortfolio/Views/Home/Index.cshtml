@@ -1,12 +1,28 @@
-﻿@{
+﻿@model List<PersonalPortfolio.Models.GitHubProject>
+@{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <hr />
 <hr />
 
+<style>
+h2 {
+    color: aliceblue;
+}
+
+h3 {
+    color: aliceblue;
+}
+
+h4 {
+    color: aliceblue       
+}
+</style>
+
 <body>
-    
+        
     @using System.Security.Claims
 
     <h2>Patrick Napper</h2>
@@ -16,11 +32,18 @@
     @if (User.Identity.IsAuthenticated)
     {
         <p>Hello @User.Identity.Name!</p>
-        <p>@Html.ActionLink("Add Blog Post", "Create", "Blog")</p>
-        <p>@Html.ActionLink("View Blog Posts", "Index", "Blog")</p>
         @using (Html.BeginForm("LogOff", "Account"))
         {
             <input type="submit" class="btn btn-default" value="Log out" />
         }
     }
+
+    <h3>Featured Projects</h3>
+        @foreach (var project in Model)
+        {
+            <p>Project: @Html.DisplayFor(modelItem => project.name)</p>
+            <p>Link: <a href="@Html.DisplayFor(modelItem => project.html_url)">@Html.DisplayFor(modelItem => project.html_url)</a></p>
+            <p>Language: @Html.DisplayFor(modelItem => project.language)</p>
+        }
+
 </body>

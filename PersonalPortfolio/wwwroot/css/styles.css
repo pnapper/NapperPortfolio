@@ -16,6 +16,11 @@ h2 {
     color: aliceblue;
 }
 
+h3 {
+    color: aliceblue
+
+}
+
 h4 {
     color: aliceblue       
 }
@@ -25,13 +30,13 @@ p {
 }
 
 th {
-    font-size: 30px;
+    font-size: 25px;
     font-family: 'Questrial', sans-serif;
     color: aliceblue;
 }
 
 td {
-    font-size: 20px;
+    font-size: 15px;
     font-family: 'Assistant', sans-serif;
     color: aliceblue;
 }
