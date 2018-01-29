@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace PersonalPortfolio.Controllers
 {
-
+    [Authorize]
     public class BlogController : Controller
     {
         private readonly ApplicationDbContext _db;

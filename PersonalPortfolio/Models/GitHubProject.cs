@@ -26,9 +26,6 @@ namespace PersonalPortfolio.Models
         {
 
             var client = new RestClient("https://api.github.com/users/pnapper/starred");
-            //-H "Accept: application/vnd.github.full+json"
-            //Accept: application / vnd.github.v3 + json
-            //https://api.github.com/users/octocat/starred{/owner}{/repo}
             var request = new RestRequest();
             //var request = new RestRequest(string.Format("{0}/starred", "pnapper"), Method.GET);
             request.AddHeader("User-Agent", "pnapper");
