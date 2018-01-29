@@ -24,6 +24,11 @@ namespace PersonalPortfolio.Controllers
             return View();
         }
 
+        public IActionResult Contact()
+        {
+            return View();
+        }
+
         public IActionResult Project()
         {
             var projects = GitHubProject.GetProjects();
