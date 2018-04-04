@@ -1,11 +1,11 @@
 ﻿body {
-    background-image: url("../images/Background.jpg");
+    background-image: url("../images/ResumeBackground.jpg");
     background-size: 70%;
     background-size: cover;
-    position: absolute
-    background-repeat: no-repeat;
+    position: absolute background-repeat: no-repeat;
     background-position: right right;
-    margin-bottom: 100px;
+    margin-bottom: 100px
+
 }
 
 footer {
